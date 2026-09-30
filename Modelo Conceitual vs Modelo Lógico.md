@@ -1,0 +1,11 @@
+
+![[Modelagem_Conceitual_vs._Modelo_Lógico.png]]
+
+# Por que não pular o modelo conceitual?
+
+Fazer o **modelo lógico** antes do **modelo conceitual** quebra a ordem natural da modelagem de dados e traz diversos riscos de projeto12. O processo recomendado segue a **arquitetura de três níveis** (Modelo Conceitual → Modelo Lógico → Modelo Físico), existindo motivos fundamentais para respeitar essa sequência12:
+
+1. **Nível de Abstração e Independência Tecnológica**: O modelo conceitual representa o nível mais alto de abstração do mundo real, focando estritamente em **o que** precisa ser armazenado (entidades, atributos e relacionamentos)13. Ele é totalmente independente de qualquer software ou Sistema de Gerenciamento de Banco de Dados (SGBD)3. Tentar desenhar o modelo lógico antes obriga o projetista a pensar prematuramente em detalhes técnicos — como tabelas, tipos de dados, chaves e restrições — antes mesmo de compreender a estrutura geral do negócio34.
+2. **Facilidade de Comunicação e Validação com o Cliente**: O modelo conceitual serve como ferramenta essencial para discutir e validar as regras de negócio com o cliente e usuários finais56. Por ser uma visão simplificada e abstrata, é facilmente compreendida por pessoas leigas45. Apresentar diretamente uma estrutura de modelo lógico (com tabelas, chaves primárias e estrangeiras) dificulta a leitura do cliente, aumentando o risco de validar requisitos incorretos47.
+3. **O Modelo Lógico é Derivado do Conceitual**: A especificação lógica dos dados deve ser **derivada a partir do modelo conceitual**28. É a partir do diagrama conceitual que se identificam, por exemplo, os relacionamentos muitos-para-muitos ($N:M$) que precisam ser desmembrados em tabelas associativas, além da definição de onde ficarão as chaves primárias (PK) e estrangeiras (FK)4more_horiz. Tentar criar o modelo lógico direto aumenta significativamente o risco de esquecer atributos, criar relacionamentos errados, gerar redundâncias desnecessárias e causar anomalias de atualização1112.
+4. **Evitar Retrabalho Excessivo**: Corrigir e reorganizar conceitos no nível conceitual (usando entidades e relacionamentos) é muito mais rápido e simples do que alterar uma estrutura técnica de tabelas, tipos de dados e chaves já amarradas311.
